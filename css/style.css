@@ -1,0 +1,56 @@
+:root {
+    --section-1-bg: #0C5D8B;
+    --section-2-bg: #2D2D2D;
+
+    --divider-height: 50px;
+}
+body {
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+section {
+    position: relative;
+    min-height: 100vh;
+}
+.section-divider {
+    border-bottom: var(--divider-height) solid;
+    border-left: 100vw solid;
+}
+#section-1 {
+    background-color: var(--section-1-bg);
+}
+    #section-1-splash {
+        position: absolute;
+        top: 50%;
+        left: 51%;
+        transform: translate(-50%, -50%);
+        width: 622px;
+        height: 100vh; /* 633px */
+        z-index: 1;
+    }
+        #guy-using-phone {
+            position: absolute;
+            top: 50%;
+            left: 53%;
+            transform: translate(-50%, -50%);
+            height: 120vh;
+        }
+        #enjoy-internet {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+#section-divider-1-2 {
+    border-left-color: var(--section-1-bg);
+    border-bottom-color: var(--section-2-bg);
+}
+#section-2 {
+    background-color: var(--section-2-bg);
+}
+    #portfolio-text {
+        position: relative;
+        top: calc(-1 * var(--divider-height) * 1.2);
+    }
