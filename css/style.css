@@ -13,6 +13,11 @@ section {
     position: relative;
     min-height: 100vh;
 }
+.giant-headline, .section-content {
+    position: relative;
+    top: calc(-1 * var(--divider-height) * 1.2);
+    width: 100%;
+}
 .section-divider {
     border-bottom: var(--divider-height) solid;
     border-left: 100vw solid;
@@ -50,7 +55,44 @@ section {
 #section-2 {
     background-color: var(--section-2-bg);
 }
-    #portfolio-text {
+    #portfolio-slider-outer {
+        /* background-color: #b1b1b1;
+        background-color: inherit; */
+        /* background-image: linear-gradient(to bottom, rgb(255, 249, 235) 40%, #222222 76%, rgb(94, 94, 94) 93%, rgb(255, 249, 235)); */
+        background-image: linear-gradient(to bottom, var(--section-2-bg) 65%, #050505 75%, rgb(94, 94, 94) 85%, rgb(255, 249, 235));
         position: relative;
-        top: calc(-1 * var(--divider-height) * 1.2);
+        margin-top: 1rem;
+        perspective: 200px;
+        perspective-origin: bottom;
     }
+    /* #portfolio-slider-outer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -8px;
+        right: -8px;
+        height: 26px;
+        z-index: 1;
+        box-shadow: inset 0px 12px 12px rgba(58, 58, 58, 0.664)
+    } */
+        #portfolio-slider-inner {
+            height: inherit;
+            display: flex;
+            gap: 16px;
+            padding: 16px 16px 32px 16px;
+            overflow-x: scroll;
+        }
+        #portfolio-slider-inner > img {
+            height: 58vh;
+            /* box-shadow: 0px 6px 12px rgba(53, 53, 53, 0.842); */
+            border: 1px solid;
+            border-top-color: whitesmoke;
+            border-left-color: rgb(150, 150, 150);
+            border-right-color: rgb(150, 150, 150);
+            border-bottom-color: black;
+            transform: rotate3d(1, 0, 0, 3deg);
+        }
+        .portfolio-side-filler {
+            height: 58vh;
+            min-width: 5vw;
+        }
