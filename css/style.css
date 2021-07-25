@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
 :root {
     --section-1-bg: #0C5D8B;
     --section-2-bg: #2D2D2D;
@@ -8,6 +10,15 @@ body {
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
+    font-family: Londrina Solid;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: rgb(15, 15, 15);
+}
+a {
+    color: inherit;
+    text-decoration: inherit;
 }
 section {
     position: relative;
@@ -16,6 +27,7 @@ section {
 .giant-headline, .section-content {
     position: relative;
     top: calc(-1 * var(--divider-height) * 1.2);
+    top: -40px;
     width: 100%;
 }
 .section-divider {
@@ -54,55 +66,93 @@ section {
 }
 #section-2 {
     background-color: var(--section-2-bg);
+    perspective: 200px;
+    perspective-origin: center;
 }
-    #portfolio-slider-outer {
-        /* background-color: #b1b1b1;
-        background-color: inherit; */
-        /* background-image: linear-gradient(to bottom, rgb(255, 249, 235) 40%, #222222 76%, rgb(94, 94, 94) 93%, rgb(255, 249, 235)); */
-        background-image: linear-gradient(to bottom, var(--section-2-bg) 25%, #050505 70%, rgb(94, 94, 94) 74%, rgb(255, 249, 235) 91%);
+    #portfolio-slider {
+        background-image: linear-gradient(to bottom, var(--section-2-bg) 25%, #050505 70%, rgb(255, 249, 235) 100%);
+        background-image: linear-gradient(to bottom, var(--section-2-bg) 25%, #050505 70%, #FF9A02 100%);
+        background-image: linear-gradient(to bottom, var(--section-2-bg) 25%, #050505 70%, #f7f7f7 100%);
+        background-size: 100% calc(58vh + 32px);
+        background-repeat: no-repeat;
+        background-color: rgba(255, 249, 235, 0.863);
+        background-color: #FF9A02;
+        background-color: #eeeeee;
         position: relative;
         margin-top: 1rem;
-        perspective: 200px;
-        perspective-origin: bottom;
+        /* height: 58vh; */
+        display: flex;
+        gap: 70px;
+        padding: 16px 16px 32px 16px;
+        overflow-x: scroll;
     }
-    /* #portfolio-slider-outer::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -8px;
-        right: -8px;
-        height: 26px;
-        z-index: 1;
-        box-shadow: inset 0px 12px 12px rgba(58, 58, 58, 0.664)
-    } */
-        #portfolio-slider-inner {
-            height: inherit;
-            display: flex;
-            gap: 16px;
-            padding: 16px 16px 32px 16px;
-            overflow-x: scroll;
-        }
-        #portfolio-slider-inner > img {
+        #portfolio-slider img {
+            position: relative;
+            z-index: 1;
             height: 58vh;
-            /* box-shadow: 0px 6px 12px rgba(53, 53, 53, 0.842); */
             border: 1px solid;
             border-top-color: whitesmoke;
             border-left-color: rgb(150, 150, 150);
             border-right-color: rgb(150, 150, 150);
             border-bottom-color: rgb(97, 100, 128);
-            border-bottom-width: 10px;
-            transform: rotate3d(1, 0, 0, 3deg);
+            transform: rotate3d(1, 0, 0, 3deg)/*  translate3d(0,40px,-20px) */;
             transform-origin: bottom;
-            transition: .1s ease-out;
+            transition: .2s ease-in-out;
         }
-        #portfolio-slider-inner > img:hover {
-            transform: rotate3d(0, 0, 0, 3deg);
-            border-width: 1px;
+        #portfolio-slider img:hover {
+            transform: rotate3d(0, 0, 0, 3deg)/*  translate3d(0,0,0) */;
             position: relative;
-            z-index: 1;
-            filter: drop-shadow(0px 0px 40px var(--section-2-bg));
+            z-index: 2;
+            filter: drop-shadow(0px -20px 20px var(--section-2-bg));
+            cursor: pointer;
         }
         .portfolio-side-filler {
             height: 58vh;
-            min-width: 5vw;
+            min-width: 1vw;
+        }
+        .portfolio-more-info {
+            position: relative;
+            width: 90%;
+            left: 50%;
+
+            /* opacity: 0;
+            transform: translate3d(-50%, -130%, 0) rotate3d(1, 0, 0, 3deg); */
+            opacity: 1;
+            transform: translate3d(-50%, 0%, 0);
+            
+            transition: .2s linear;
+        }
+            .portfolio-more-info h1 {
+                font-weight: 400;
+            }
+            .portfolio-more-info p {
+                font-family: Patua One;
+            }
+            .portfolio-more-info p:last-of-type {
+                font-size: 0.7em;
+            }
+        /* js-controlled classes */
+        /* .portfolio-more-info-hover {
+            transform: translate3d(-50%, 0%, 0) rotate3d(0, 0, 0, 3deg);
+            opacity: 1;
+        } */
+        @keyframes popup-image {
+            to {
+                height: 80vh;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .popup-image {
+            animation: popup-image 1s forwards;
+        }
+        @keyframes popup-img-div {
+            to {
+                background-color: #000000bf;
+            }
+        }
+        .popup-img-div {
+            cursor: pointer;
+            animation: popup-img-div 1s forwards;
         }
