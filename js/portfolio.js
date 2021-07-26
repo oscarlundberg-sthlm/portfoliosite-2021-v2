@@ -1,19 +1,15 @@
-// displaying 'more info' dynamically on hover
+// shadow on hover
+const images = document.querySelectorAll('.portfolio-img');
+const shadows = document.querySelectorAll('.portfolio-img-shadow');
 
-// const entities = document.querySelectorAll('.portfolio-entity');
-
-// const handleMouseEnter = (e) => {
-//     e.target.children[1].classList.add('portfolio-more-info-hover');
-// };
-// const handleMouseLeave = (e) => {
-//     e.target.children[1].classList.remove('portfolio-more-info-hover');
-// };
-
-// entities.forEach(v => v.addEventListener('mouseenter', handleMouseEnter));
-// entities.forEach(v => v.addEventListener('mouseleave', handleMouseLeave));
+images.forEach((v, k) => v.addEventListener('mouseenter', () => {
+    shadows[k].style.backgroundColor = 'rgba(2, 2, 2, 0.4)';
+}))
+images.forEach((v, k) => v.addEventListener('mouseleave', () => {
+    shadows[k].style.backgroundColor = 'rgba(2, 2, 2, 0.5)';
+}))
 
 // popup for images without link
-
 const imgsNoLink = document.querySelectorAll('.portfolio-img-no-link');
 
 imgsNoLink.forEach(v => v.addEventListener('click', (e) => {
@@ -46,9 +42,27 @@ imgsNoLink.forEach(v => v.addEventListener('click', (e) => {
     bigImgDiv.appendChild(bigImg);
     document.body.appendChild(bigImgDiv);
 
-    bigImgDiv.addEventListener('click', (e) => {
+    bigImgDiv.addEventListener('click', () => {
         console.log(bigImgDiv);
         bigImgDiv.remove();
         el.style.opacity = 1;
     })
 }))
+
+
+
+
+
+// displaying 'more info' dynamically on hover
+
+// const entities = document.querySelectorAll('.portfolio-entity');
+
+// const handleMouseEnter = (e) => {
+//     e.target.children[1].classList.add('portfolio-more-info-hover');
+// };
+// const handleMouseLeave = (e) => {
+//     e.target.children[1].classList.remove('portfolio-more-info-hover');
+// };
+
+// entities.forEach(v => v.addEventListener('mouseenter', handleMouseEnter));
+// entities.forEach(v => v.addEventListener('mouseleave', handleMouseLeave));
