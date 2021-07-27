@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
 :root {
     --section-1-bg: #0C5D8B;
     --section-2-bg: #2D2D2D;
     --section-3-bg: #5F5263;
     --section-4-bg: #FF9A02;
-
-    --divider-height: 50px;
 }
 body {
     margin: 0;
@@ -26,16 +25,19 @@ section {
     position: relative;
     min-height: 100vh;
 }
-.giant-headline, .section-content {
+.section-content {
     position: relative;
-    /* top: calc(-1 * var(--divider-height) * 1.2); */
-    top: -40px;
+    top: -3vw;
     width: 100%;
 }
-/* .section-divider {
-    border-bottom: var(--divider-height) solid;
-    border-left: 100vw solid;
-} */
+.giant-headline {
+    position: relative;
+    top: -3vw;
+    width: 100%;
+}
+
+
+
 #section-1 {
     background-color: var(--section-1-bg);
 }
@@ -44,8 +46,7 @@ section {
         top: 50%;
         left: 51%;
         transform: translate(-50%, -50%);
-        width: 622px;
-        height: 100vh; /* 633px */
+        height: 100vh;
         z-index: 1;
     }
         #guy-using-phone {
@@ -60,12 +61,12 @@ section {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 622px;
             z-index: 1;
         }
-#section-divider-1-2 {
-    border-left-color: var(--section-1-bg);
-    border-bottom-color: var(--section-2-bg);
-}
+
+
+
 #section-2 {
     background-color: var(--section-2-bg);
     perspective: 400px;
@@ -82,7 +83,6 @@ section {
         background-color: #eeeeee;
         position: relative;
         margin-top: 1rem;
-        /* height: 58vh; */
         display: flex;
         gap: 70px;
         padding: 16px 16px 32px 16px;
@@ -102,15 +102,14 @@ section {
             border-left-color: rgb(150, 150, 150);
             border-right-color: rgb(150, 150, 150);
             border-bottom-color: rgb(97, 100, 128);
-            transform: rotate3d(1, 0, 0, 7deg)/*  translate3d(0,40px,-20px) */;
+            transform: rotate3d(1, 0, 0, 7deg);
             transform-origin: inherit;
             transition: .2s ease-in-out;
         }
         #portfolio-slider img:hover {
-            transform: rotate3d(0, 0, 0, 7deg)/*  translate3d(0,0,0) */;
+            transform: rotate3d(0, 0, 0, 7deg);
             position: relative;
             z-index: 2;
-            /* filter: drop-shadow(0px -20px 20px var(--section-2-bg)); */
             cursor: pointer;
         }
         .portfolio-img-shadow {
@@ -133,12 +132,8 @@ section {
             position: relative;
             width: 90%;
             left: 50%;
-
-            /* opacity: 0;
-            transform: translate3d(-50%, -130%, 0) rotate3d(1, 0, 0, 7deg); */
             opacity: 1;
             transform: translate3d(-50%, 0%, 0);
-
             transition: .2s linear;
         }
             .portfolio-more-info h1 {
@@ -150,11 +145,6 @@ section {
             .portfolio-more-info p:last-of-type {
                 font-size: 0.7em;
             }
-        /* js-controlled classes */
-        /* .portfolio-more-info-hover {
-            transform: translate3d(-50%, 0%, 0) rotate3d(0, 0, 0, 7deg);
-            opacity: 1;
-        } */
         @keyframes popup-image {
             to {
                 height: 80vh;
@@ -176,9 +166,11 @@ section {
             animation: popup-img-div 1s forwards;
         }
     #section-2-filler-below {
-        background-image: linear-gradient(to top, var(--section-2-bg) 40%, #050505 100%);
-        height: 10rem;
+        background-image: linear-gradient(to top, var(--section-2-bg) 50%, #050505 100%);
+        height: 100px;
     }
+
+
 
 #section-3 {
     background-color: var(--section-3-bg);
@@ -189,60 +181,166 @@ section {
         justify-content: center;
     }
         #about-me-textbox {
-            position: relative;
-            width: 500px;
-            /* height: 0px; */
-            /* left: 140px; */
-            margin-top: 110px;
-
+            width: 550px;
+            margin-top: 8vw;
+            margin-left: 5vw;
             font-family: Londrina Solid;
             font-style: normal;
             font-weight: normal;
-            font-size: 32px;
-            line-height: 38px;
+            font-size: 1.77rem;
+            line-height: 2.11rem;
 
             color: #F5D0C0;
         }
         #oscar-dfp-svg {
-            position: relative;
             transform: translateY(-15%);
+            margin-right: 5vw;
         }
+
+
+
 #section-4 {
     background-color: var(--section-4-bg);
-    perspective: 100px;
-    perspective-origin: bottom;
 }
-    #getintouch-headline {
-        position: absolute;
-    }
-    #dove {
-        width: 100%;
-    }
+#section-4::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-image: url(../assets/svg/duva-exp-2.svg);
+    background-size: 250px;
+    background-attachment: fixed;
+    filter: hue-rotate(180deg) brightness(50%) opacity(50%);
+}
     #letter {
+        perspective: 1000px;
+        perspective-origin: center;
         width: 80vw;
         max-width: 1194px;
         height: calc(80vw * 0.545);
         max-height: calc(1194px * 0.545);
         background-color: #F8F8F8;
+        margin-top: 5rem;
         position: relative;
-        top: -20px;
         left: 50%;
         transform: translateX(-50%);
         border: 4px solid #303030;
     }
-        #letter-content {
-            position: relative;
-            left: 50%;
-            height: 100%;
-            width: 50%;
-            font-size: 2rem;
-            display: flex;
-            flex-direction: column;
+        #dove {
+            position: absolute;
+            left: -5%;
+            top: -30%;
+            width: 70%;
+            transform-origin: center;
+            transition: 1s ease-out;
+            filter: drop-shadow(0 0 20px #00000028);
         }
+        #letter-content {
+            height: 100%;
+            width: 100%;
+            font-size: 2rem;
+        }
+            #letter-addresses {
+                position: absolute;
+                left: 50%;
+                bottom: 25%;
+            }
+            #letter-addresses > p:first-of-type {
+                margin-top: 0;
+            }
+            #letter-addresses > p:last-of-type {
+                margin-bottom: 0;
+            }
             #stamp {
+                position: absolute;
+                right: 0;
+                top: 0;
                 border: 0.2em dashed #303030;
                 height: 22%;
-                width: 18%;
-                margin: 7%;
-                align-self: flex-end;
+                width: 9%;
+                margin: 3.5%;
             }
+
+
+
+@media only screen and (max-width: 1439px) {
+    #section-4::before {
+        background-size: 20vw;
+    }
+}
+@media only screen and (max-width: 1135px) {
+    #section-3-content {
+        gap: 2vw;
+    }
+    #oscar-dfp-svg {
+        height: 100vh;
+    }
+    #letter-addresses {
+        left: 0%;
+        bottom: 0%;
+        margin: 3.5%;
+    }
+    #dove {
+        top: -70%;
+        left: 1%;
+    }
+}
+@media only screen and (max-width: 1025px) {
+    #about-me-textbox {
+        width: 25%;
+    }
+    #oscar-dfp-svg {
+        height: initial;
+        width: 60vw;
+    }
+}
+@media only screen and (max-width: 927px) {
+    #section-3-content {
+        flex-direction: column;
+    }
+    #about-me-textbox {
+        position: initial;
+        width: initial;
+        margin: 3vw;
+    }
+    #oscar-dfp-svg {
+        transform: initial;
+        margin-right: initial;
+
+        margin-bottom: 6vw;
+        width: 50vw;
+        height: initial;
+        align-self: center;
+        transform: translateX(12vw);
+    }
+}
+@media only screen and (max-width: 656px) {
+    #letter {
+        height: 50vh;
+        width: 90vw;
+        margin-top: initial;
+        position: absolute;
+        left: initial;
+        top: 5rem;
+        right: 10vw;
+        transform: initial;
+    }
+    #stamp {
+        height: 12vh;
+        width: 9vh;
+    }
+    #dove {
+        top: -20vw;
+        left: initial;
+        right: 15vw;
+        width: 70vw;
+        z-index: 2;
+    }
+    #letter-content {
+        font-size: 1.2rem;
+    }
+    #letter-addresses {
+        top: 50%;
+        bottom: initial;
+        margin: 3.5%;
+    }
+}

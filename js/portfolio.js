@@ -43,7 +43,6 @@ imgsNoLink.forEach(v => v.addEventListener('click', (e) => {
     document.body.appendChild(bigImgDiv);
 
     bigImgDiv.addEventListener('click', () => {
-        console.log(bigImgDiv);
         bigImgDiv.remove();
         el.style.opacity = 1;
     })
