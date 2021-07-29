@@ -15,6 +15,7 @@ export default function mouseMovement(parentEl, targetEl, degrees, transformsToK
             rotateX(${dynamicDegreesY}deg)
             rotateY(${dynamicDegreesX}deg)
             ${transformsToKeep}
+            scale(1)
             `;
     }
     

@@ -40,11 +40,17 @@ section {
 
 #section-1 {
     background-color: var(--section-1-bg);
+    width: 100vw;
+    /* height: 100vh;
+    position: fixed;
+    z-index: 10000;
+    overflow-y: scroll;
+    overflow-x: hidden; */
 }
     #section-1-splash {
         position: absolute;
         top: 50%;
-        left: 51%;
+        left: 50%;
         transform: translate(-50%, -50%);
         height: 100vh;
         width: 100vw;
@@ -57,7 +63,42 @@ section {
             top: 50%;
             left: 53%;
             transform: translate(-50%, -50%);
-            height: 120vh;
+            /* height: 120vh; */
+        }
+        @keyframes bobhead {
+            to {
+                transform: rotate(1deg);
+            }
+        }
+        #using-phone-head {
+            transform-origin: 20% 23%;
+            animation: bobhead .3s ease-in-out alternate infinite;
+        }
+        @keyframes phone-screen {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            25% {
+                filter: hue-rotate(120deg);
+            }
+            49% {
+                filter: hue-rotate(160deg) brightness(60%);
+            }
+            50% {
+                filter: hue-rotate(360deg);
+            }
+            75% {
+                filter: hue-rotate(240deg);
+            }
+            99% {
+                filter: hue-rotate(260deg) brightness(60%);
+            }
+
+        }
+        #path94480 {
+            fill: #9e9381;
+            filter: hue-rotate(0deg);
+            animation: phone-screen 1.8s normal infinite;
         }
         #enjoy-internet {
             position: absolute;
@@ -67,14 +108,23 @@ section {
                     translate(-50%, -50%)
                     rotateX(15deg)
                     rotateY(15deg)
+                    scale(0.7)
                 ;
             transform-origin: top left;
             transition: 1s cubic-bezier(.3,.87,.33,.93);
             width: 622px;
             z-index: 1;
         }
+        
+    /* #section-1-splash::after {
+        content: '';
+        position: absolute;
+        top: 100vh;
+        width: 100vw;
+        height: 100vh;
+    } */
 
-
+        
 
 #section-2 {
     background-color: var(--section-2-bg);
