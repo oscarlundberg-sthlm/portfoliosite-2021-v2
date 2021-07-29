@@ -66,7 +66,10 @@ section {
             /* height: 120vh; */
         }
         @keyframes bobhead {
-            to {
+            0% {
+                transform: rotate(1deg);
+            }
+            25% {
                 transform: rotate(1deg);
             }
         }
@@ -98,7 +101,7 @@ section {
         #path94480 {
             fill: #9e9381;
             filter: hue-rotate(0deg);
-            animation: phone-screen 1.8s normal infinite;
+            animation: phone-screen 1.2s normal infinite;
         }
         #enjoy-internet {
             position: absolute;
@@ -365,11 +368,11 @@ section {
         transform: initial;
         margin-right: initial;
 
-        margin-bottom: 6vw;
+        margin-bottom: 15vw;
         width: 50vw;
         height: initial;
         align-self: center;
-        transform: translateX(12vw);
+        transform: translateX(3vw);
     }
 }
 @media only screen and (max-width: 656px) {

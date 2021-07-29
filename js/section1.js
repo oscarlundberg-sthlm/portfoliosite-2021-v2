@@ -38,5 +38,5 @@ const guyOnPhone = document.getElementById('guy-using-phone');
 const guyOnPhoneCompWidth = parseInt(getComputedStyle(guyOnPhone).width);
 
 if (guyOnPhoneCompWidth / document.body.clientWidth > 0.95) {
-    guyOnPhone.style.width = '95vw';
+    guyOnPhone.style.width = '85vw';
 }
