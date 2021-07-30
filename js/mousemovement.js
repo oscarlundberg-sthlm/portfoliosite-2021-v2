@@ -1,4 +1,4 @@
-export default function mouseMovement(parentEl, targetEl, degrees, transformsToKeep) {
+export default function mouseMovement(parentEl, targetEl, degrees, transformsToKeep, opacityWhileMoving) {
     const mouseMove = (e) => {
         let xCenter = e.clientX - (parentEl.clientWidth / 2);
         let yCenter = e.clientY - (parentEl.clientHeight / 2);
@@ -11,13 +11,19 @@ export default function mouseMovement(parentEl, targetEl, degrees, transformsToK
         dynamicDegreesX = Math.round(dynamicDegreesX);
         dynamicDegreesY = Math.round(-1 * dynamicDegreesY);
     
-        targetEl.style.transform = `
-            rotateX(${dynamicDegreesY}deg)
-            rotateY(${dynamicDegreesX}deg)
-            ${transformsToKeep}
-            scale(1)
-            `;
+        requestAnimationFrame(() => {
+            targetEl.style.transform = `
+                rotateX(${dynamicDegreesY}deg)
+                rotateY(${dynamicDegreesX}deg)
+                ${transformsToKeep}
+                scale(1)
+                `;
+            
+            if (opacityWhileMoving) targetEl.style.opacity = opacityWhileMoving;
+        })
     }
     
-    parentEl.addEventListener('mousemove', mouseMove);
+    if (window.MouseEvent) {
+        parentEl.addEventListener('mousemove', mouseMove);
+    }
 }

@@ -2,12 +2,44 @@
 const images = document.querySelectorAll('.portfolio-img');
 const shadows = document.querySelectorAll('.portfolio-img-shadow');
 
-images.forEach((v, k) => v.addEventListener('mouseenter', () => {
-    shadows[k].style.backgroundColor = 'rgba(2, 2, 2, 0.4)';
-}))
-images.forEach((v, k) => v.addEventListener('mouseleave', () => {
-    shadows[k].style.backgroundColor = 'rgba(2, 2, 2, 0.5)';
-}))
+if (window.MouseEvent) {
+    images.forEach((v, k) => v.addEventListener('mouseenter', () => {
+        requestAnimationFrame(() => {
+            images[k].style.transform = 'rotate3d(0, 0, 0, 7deg) translateY(-2%) translateZ(10px)';
+            images[k].style.position = 'relative';
+            images[k].style.zIndex = 2;
+            images[k].style.cursor = 'pointer';
+    
+            shadows[k].style.backgroundColor = 'rgba(2, 2, 2, 0.4)';
+            shadows[k].style.transform = 'rotate3d(1, 0, 0, 90deg) translateY(5px)';
+            shadows[k].style.filter = 'blur(5px)';
+        })
+    
+        // images.forEach(v2 => {
+        //     if (images[k] === v2) {} else {
+        //         v2.style.filter = 'brightness(50%)';
+        //     }
+        // })
+    }))
+    images.forEach((v, k) => v.addEventListener('mouseleave', () => {
+        requestAnimationFrame(() => {
+            images[k].style.transform = '';
+            images[k].style.position = '';
+            images[k].style.zIndex = '';
+            images[k].style.cursor = '';
+    
+            shadows[k].style.backgroundColor = '';
+            shadows[k].style.transform = '';
+            shadows[k].style.filter = '';
+        })
+    
+        // images.forEach(v2 => {
+        //     if (images[k] === v2) {} else {
+        //         v2.style.filter = 'brightness(100%)';
+        //     }
+        // })
+    }))
+}
 
 // popup for images without link
 const imgsNoLink = document.querySelectorAll('.portfolio-img-no-link');
@@ -17,8 +49,6 @@ imgsNoLink.forEach(v => v.addEventListener('click', (e) => {
     const imgAlt = el.alt;
     const imgSrc = el.currentSrc;
     const imgHeight = el.height;
-
-    el.style.opacity = 0;
     
     let bigImg = document.createElement('img');
     bigImg.setAttribute('src', imgSrc);
@@ -39,12 +69,17 @@ imgsNoLink.forEach(v => v.addEventListener('click', (e) => {
     bigImgDiv.style.zIndex = 1000;
     bigImgDiv.classList.add('popup-img-div');
 
-    bigImgDiv.appendChild(bigImg);
-    document.body.appendChild(bigImgDiv);
+    requestAnimationFrame(() => {
+        el.style.opacity = 0;
+        bigImgDiv.appendChild(bigImg);
+        document.body.appendChild(bigImgDiv);
+    })
 
     bigImgDiv.addEventListener('click', () => {
-        bigImgDiv.remove();
-        el.style.opacity = 1;
+        requestAnimationFrame(() => {
+            bigImgDiv.remove();
+            el.style.opacity = 1;
+        })
     })
 }))
 

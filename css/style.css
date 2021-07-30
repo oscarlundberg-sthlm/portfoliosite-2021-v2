@@ -8,6 +8,7 @@
     --section-4-bg: #FF9A02;
 }
 body {
+    background-color: var(--section-1-bg);
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -36,17 +37,22 @@ section {
     width: 100%;
 }
 
-
-
 #section-1 {
     background-color: var(--section-1-bg);
+    background-image: radial-gradient(ellipse at 50% 0%,#1179b6, 45%, transparent, 90%, transparent);
+    background-size: 100% calc(100vh - 3vw);
+    background-repeat: no-repeat;
     width: 100vw;
-    /* height: 100vh;
-    position: fixed;
-    z-index: 10000;
-    overflow-y: scroll;
-    overflow-x: hidden; */
 }
+/* #section-1::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-image: url(../assets/svg/enjoy-internet.svg);
+    background-size: 250px;
+    background-attachment: fixed;
+    filter: hue-rotate(180deg) brightness(45%) opacity(60%) blur(2px);
+} */
     #section-1-splash {
         position: absolute;
         top: 50%;
@@ -67,17 +73,20 @@ section {
         }
         @keyframes bobhead {
             0% {
-                transform: rotate(1deg);
+                transform: rotate(0deg);
             }
-            25% {
-                transform: rotate(1deg);
+            50% {
+                transform: rotate(3deg);
+            }
+            66% {
+                transform: rotate(3deg);
             }
         }
         #using-phone-head {
             transform-origin: 20% 23%;
-            animation: bobhead .3s ease-in-out alternate infinite;
+            animation: bobhead 5s ease-in-out normal infinite;
         }
-        @keyframes phone-screen {
+        /* @keyframes phone-screen {
             0% {
                 filter: hue-rotate(0deg);
             }
@@ -85,38 +94,57 @@ section {
                 filter: hue-rotate(120deg);
             }
             49% {
-                filter: hue-rotate(160deg) brightness(60%);
+                filter: hue-rotate(160deg);
             }
             50% {
-                filter: hue-rotate(360deg);
+                filter: hue-rotate(180deg);
             }
             75% {
                 filter: hue-rotate(240deg);
             }
             99% {
-                filter: hue-rotate(260deg) brightness(60%);
+                filter: hue-rotate(260deg);
             }
 
         }
         #path94480 {
-            fill: #9e9381;
+            fill: #b38d50;
             filter: hue-rotate(0deg);
             animation: phone-screen 1.2s normal infinite;
-        }
+        } */
         #enjoy-internet {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: 
-                    translate(-50%, -50%)
+                    translate(-45%, -40%)
                     rotateX(15deg)
                     rotateY(15deg)
                     scale(0.7)
+                    translateZ(20px)
                 ;
             transform-origin: top left;
             transition: 1s cubic-bezier(.3,.87,.33,.93);
             width: 622px;
             z-index: 1;
+        }
+        #enjoy-internet-behind {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: 
+                    translate(-45%, -40%)
+                    rotateX(15deg)
+                    rotateY(15deg)
+                    scale(0.7)
+                    translateZ(-20px)
+                ;
+            transform-origin: top left;
+            transition: 1s cubic-bezier(.3,.87,.33,.93);
+            width: 622px;
+            filter: brightness(100%) blur(3px) hue-rotate(180deg);
+            opacity: 0;
+            z-index: -1;
         }
         
     /* #section-1-splash::after {
@@ -135,13 +163,9 @@ section {
     perspective-origin: 50% 40%;
 }
     #portfolio-slider {
-        background-image: linear-gradient(to bottom, var(--section-2-bg) 25%, #050505 70%, rgb(255, 249, 235) 100%);
-        background-image: linear-gradient(to bottom, var(--section-2-bg) 25%, #050505 70%, #FF9A02 100%);
-        background-image: linear-gradient(to bottom, var(--section-2-bg) 25%, #050505 85%, #f7f7f7 100%);
+        background-image: linear-gradient(to bottom, var(--section-2-bg) 25%, #050505 80%, #f7f7f7 100%);
         background-size: 100% calc(58vh + 32px);
         background-repeat: no-repeat;
-        background-color: rgba(255, 249, 235, 0.863);
-        background-color: #FF9A02;
         background-color: #eeeeee;
         position: relative;
         margin-top: 1rem;
@@ -168,12 +192,6 @@ section {
             transform-origin: inherit;
             transition: .2s ease-in-out;
         }
-        #portfolio-slider img:hover {
-            transform: rotate3d(0, 0, 0, 7deg);
-            position: relative;
-            z-index: 2;
-            cursor: pointer;
-        }
         .portfolio-img-shadow {
             position: absolute;
             top: 0;
@@ -182,7 +200,7 @@ section {
             left: 0;
             z-index: 0;
             background-color: rgba(2, 2, 2, 0.5);
-            transform: rotate3d(1, 0, 0, 90deg) scaleY(20%);
+            transform: rotate3d(1, 0, 0, 90deg);
             transform-origin: inherit;
             transition: .2s ease-in-out;
         }
