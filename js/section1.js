@@ -29,12 +29,7 @@ const insertedGuyOnPhone = section1Splash.getElementsByTagName('svg')[0];
 const guyOnPhoneWidthRatio = 0.579947345375073;
 insertedGuyOnPhone.setAttribute('height', section1.clientHeight + 'px')
 insertedGuyOnPhone.setAttribute('width', section1.clientHeight * guyOnPhoneWidthRatio + 'px')
-// insertedGuyOnPhone.setAttribute('viewBox', `0 0 ${section1.clientHeight * guyOnPhoneWidthRatio}px ${section1.clientHeight}px`)
 insertedGuyOnPhone.setAttribute('id', 'guy-using-phone');
-
-//remove inline fill on phone screen
-// document.getElementById('path94480').style = 'fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;';
-
 
 
 // responsiveness

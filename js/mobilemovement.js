@@ -71,15 +71,13 @@ export default function mobileMovement(parentEl, targetEl, transformsToKeep, opa
             let dynamicDegreesY = Math.round(mouseY / -2);
             let dynamicDegreesX = Math.round(mouseX * 1);
 
-            requestAnimationFrame(() => {
-                targetEl.style.transform = `
-                rotateX(${dynamicDegreesY}deg)
-                rotateY(${dynamicDegreesX}deg)
-                ${transformsToKeep}
-                `;
-    
-                if (opacityWhileMoving) targetEl.style.opacity = opacityWhileMoving;
-            })
+            targetEl.style.transform = `
+            rotateX(${dynamicDegreesY}deg)
+            rotateY(${dynamicDegreesX}deg)
+            ${transformsToKeep}
+            `;
+
+            if (opacityWhileMoving) targetEl.style.opacity = opacityWhileMoving;
 
         }
     };

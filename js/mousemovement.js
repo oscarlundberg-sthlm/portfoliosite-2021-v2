@@ -11,16 +11,14 @@ export default function mouseMovement(parentEl, targetEl, degrees, transformsToK
         dynamicDegreesX = Math.round(dynamicDegreesX);
         dynamicDegreesY = Math.round(-1 * dynamicDegreesY);
     
-        requestAnimationFrame(() => {
-            targetEl.style.transform = `
-                rotateX(${dynamicDegreesY}deg)
-                rotateY(${dynamicDegreesX}deg)
-                ${transformsToKeep}
-                scale(1)
-                `;
-            
-            if (opacityWhileMoving) targetEl.style.opacity = opacityWhileMoving;
-        })
+        targetEl.style.transform = `
+            rotateX(${dynamicDegreesY}deg)
+            rotateY(${dynamicDegreesX}deg)
+            ${transformsToKeep}
+            scale(1)
+            `;
+        
+        if (opacityWhileMoving) targetEl.style.opacity = opacityWhileMoving;
     }
     
     if (window.MouseEvent) {

@@ -35,6 +35,7 @@ section {
     position: relative;
     top: -3vw;
     width: 100%;
+    height: auto;
 }
 
 #section-1 {
@@ -69,7 +70,6 @@ section {
             top: 50%;
             left: 53%;
             transform: translate(-50%, -50%);
-            /* height: 120vh; */
         }
         @keyframes bobhead {
             0% {
@@ -86,32 +86,6 @@ section {
             transform-origin: 20% 23%;
             animation: bobhead 5s ease-in-out normal infinite;
         }
-        /* @keyframes phone-screen {
-            0% {
-                filter: hue-rotate(0deg);
-            }
-            25% {
-                filter: hue-rotate(120deg);
-            }
-            49% {
-                filter: hue-rotate(160deg);
-            }
-            50% {
-                filter: hue-rotate(180deg);
-            }
-            75% {
-                filter: hue-rotate(240deg);
-            }
-            99% {
-                filter: hue-rotate(260deg);
-            }
-
-        }
-        #path94480 {
-            fill: #b38d50;
-            filter: hue-rotate(0deg);
-            animation: phone-screen 1.2s normal infinite;
-        } */
         #enjoy-internet {
             position: absolute;
             top: 50%;
@@ -126,6 +100,7 @@ section {
             transform-origin: top left;
             transition: 1s cubic-bezier(.3,.87,.33,.93);
             width: 622px;
+            height: auto;
             z-index: 1;
         }
         #enjoy-internet-behind {
@@ -142,18 +117,11 @@ section {
             transform-origin: top left;
             transition: 1s cubic-bezier(.3,.87,.33,.93);
             width: 622px;
+            height: auto;
             filter: brightness(100%) blur(3px) hue-rotate(180deg);
             opacity: 0;
             z-index: -1;
         }
-        
-    /* #section-1-splash::after {
-        content: '';
-        position: absolute;
-        top: 100vh;
-        width: 100vw;
-        height: 100vh;
-    } */
 
         
 
@@ -163,7 +131,8 @@ section {
     perspective-origin: 50% 40%;
 }
     #portfolio-slider {
-        background-image: linear-gradient(to bottom, var(--section-2-bg) 25%, #050505 80%, #f7f7f7 100%);
+        /* background-image: linear-gradient(to bottom, var(--section-2-bg) 25%, #050505 80%, #f7f7f7 100%); */
+        background-image: url(../assets/raster/pf-slider-bg-gradient.webp);
         background-size: 100% calc(58vh + 32px);
         background-repeat: no-repeat;
         background-color: #eeeeee;
@@ -179,10 +148,11 @@ section {
             height: 58vh;
             transform-origin: bottom;
         }
-        #portfolio-slider img {
+        .portfolio-img {
             position: relative;
             z-index: 1;
             height: inherit;
+            width: auto;
             border: 1px solid;
             border-top-color: whitesmoke;
             border-left-color: rgb(150, 150, 150);
@@ -191,6 +161,12 @@ section {
             transform: rotate3d(1, 0, 0, 7deg);
             transform-origin: inherit;
             transition: .2s ease-in-out;
+        }
+        .portfolio-img-active {
+            position: relative;
+            z-index: 2;
+            transform: rotate3d(0, 0, 0, 7deg) translateY(-2%) translateZ(10px);
+            cursor: pointer;
         }
         .portfolio-img-shadow {
             position: absolute;
@@ -203,6 +179,11 @@ section {
             transform: rotate3d(1, 0, 0, 90deg);
             transform-origin: inherit;
             transition: .2s ease-in-out;
+        }
+        .portfolio-img-shadow-active {
+            background-color: rgba(2, 2, 2, 0.4);
+            transform: rotate3d(1, 0, 0, 90deg) translateY(5px);
+            filter: blur(5px);
         }
         .portfolio-side-filler {
             height: 58vh;
@@ -228,6 +209,7 @@ section {
         @keyframes popup-image {
             to {
                 height: 80vh;
+                width: auto;
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
@@ -246,7 +228,8 @@ section {
             animation: popup-img-div 1s forwards;
         }
     #section-2-filler-below {
-        background-image: linear-gradient(to top, var(--section-2-bg) 50%, #050505 100%);
+        background-color: #0A0A0A;
+        background-image: url(../assets/raster/pf-below-gradient.webp);
         height: 100px;
     }
 
@@ -281,15 +264,9 @@ section {
 
 #section-4 {
     background-color: var(--section-4-bg);
-}
-#section-4::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background-image: url(../assets/svg/duva-exp-2.svg);
+    background-image: url(../assets/raster/duva-exp-2-bg.webp);
     background-size: 250px;
     background-attachment: fixed;
-    filter: hue-rotate(180deg) brightness(50%) opacity(50%);
 }
     #letter {
         perspective: 1000px;
@@ -310,6 +287,7 @@ section {
             left: -5%;
             top: -30%;
             width: 70%;
+            height: auto;
             transform-origin: center;
             transition: 1s ease-out;
             filter: drop-shadow(0 0 20px #00000028);
@@ -343,7 +321,7 @@ section {
 
 
 @media only screen and (max-width: 1439px) {
-    #section-4::before {
+    #section-4 {
         background-size: 20vw;
     }
 }
@@ -353,6 +331,7 @@ section {
     }
     #oscar-dfp-svg {
         height: 100vh;
+        width: auto;
     }
     #letter-addresses {
         left: 0%;
@@ -369,8 +348,8 @@ section {
         width: 25%;
     }
     #oscar-dfp-svg {
-        height: initial;
         width: 60vw;
+        height: auto;
     }
 }
 @media only screen and (max-width: 927px) {
@@ -388,7 +367,7 @@ section {
 
         margin-bottom: 15vw;
         width: 50vw;
-        height: initial;
+        height: auto;
         align-self: center;
         transform: translateX(3vw);
     }
@@ -413,6 +392,7 @@ section {
         left: initial;
         right: 15vw;
         width: 70vw;
+        height: auto;
         z-index: 2;
     }
     #letter-content {
