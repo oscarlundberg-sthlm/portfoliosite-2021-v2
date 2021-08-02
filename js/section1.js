@@ -7,7 +7,7 @@ const enjoyInternetText = document.querySelector('#enjoy-internet');
 
 let degrees = 15;
 let transformsToKeepMouseMove = 'translate(-50%, -50%) translateZ(200px)';
-let transformsToKeepMobile = 'translate(-50%, -50%) translateZ(150px)';
+let transformsToKeepMobile = 'translate(-35%, -35%) translateZ(200px) scale(0.7)';
 let opacityWhileMoving = null;
 
 mobileMovement(section1, enjoyInternetText, transformsToKeepMobile);
@@ -15,7 +15,7 @@ mouseMovement(section1, enjoyInternetText, degrees, transformsToKeepMouseMove);
 
 const enjoyInternetTextBehind = document.querySelector('#enjoy-internet-behind');
 transformsToKeepMouseMove = 'translate(-50%, -50%) translateZ(-200px)';
-transformsToKeepMobile = 'translate(-50%, -50%) translateZ(-100px)';
+transformsToKeepMobile = 'translate(-50%, -50%) translateZ(-200px) scale(1)';
 opacityWhileMoving = 1;
 
 mobileMovement(section1, enjoyInternetTextBehind, transformsToKeepMobile, opacityWhileMoving);

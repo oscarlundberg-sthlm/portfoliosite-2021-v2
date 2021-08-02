@@ -1,5 +1,5 @@
 export default function mobileMovement(parentEl, targetEl, transformsToKeep, opacityWhileMoving) {
-    let mouseX = 0, mouseY = 0;
+    let sideToSide = 0, updown = 0;
     let tareYAxis = null;
     let tareXAxis = null;
 
@@ -47,8 +47,8 @@ export default function mobileMovement(parentEl, targetEl, transformsToKeep, opa
                     if (!tareXAxis) {
                         tareXAxis = event.gamma;
                     }
-                    mouseX = tareXAxis - event.gamma;
-                    mouseY = tareYAxis - event.beta;
+                    sideToSide = tareXAxis - event.gamma;
+                    updown = tareYAxis - event.beta;
                     break;
                 case "Landscape":
                     if (!tareYAxis) {
@@ -57,8 +57,8 @@ export default function mobileMovement(parentEl, targetEl, transformsToKeep, opa
                     if (!tareXAxis) {
                         tareXAxis = event.beta;
                     }
-                    mouseX = tareXAxis - event.beta;
-                    mouseY = tareYAxis - event.gamma;
+                    sideToSide = tareXAxis - event.beta;
+                    updown = tareYAxis - event.gamma;
 
                     //landscapePopup test
                     document.body.insertAdjacentElement("afterbegin", landscapePopup);
@@ -68,8 +68,8 @@ export default function mobileMovement(parentEl, targetEl, transformsToKeep, opa
                     break;
             }
             
-            let dynamicDegreesY = Math.round(mouseY / -2);
-            let dynamicDegreesX = Math.round(mouseX * 1);
+            let dynamicDegreesY = Math.round(updown / -2);
+            let dynamicDegreesX = Math.round(sideToSide * 1);
 
             targetEl.style.transform = `
             rotateX(${dynamicDegreesY}deg)
