@@ -3,8 +3,8 @@
 
 :root {
     --section-1-bg: #0C5D8B;
-    --section-2-bg: #2D2D2D;
-    --section-3-bg: #5F5263;
+    --section-2-bg: #0A0A0A;
+    --section-3-bg: #2C253A;
     --section-4-bg: #FF9A02;
 }
 body {
@@ -135,7 +135,7 @@ section {
     perspective-origin: 50% 40%;
 }
     #portfolio-slider {
-        background-image: url(../assets/raster/pf-slider-bg-gradient.webp);
+        background-image: url(../assets/raster/pf-slider-bg-2.png);
         background-size: 100% calc(58vh + 32px);
         background-repeat: no-repeat;
         background-color: #eeeeee;
@@ -264,17 +264,27 @@ section {
         }
     #section-2-filler-below {
         background-color: #0A0A0A;
-        background-image: url(../assets/raster/pf-below-gradient.webp);
-        height: 100px;
+        height: 5vw;
+    }
+    #section-2-filler-below-2 {
+        background-color: #ED722C;
+        background-image: url(../assets/raster/pf-below-bg-3.png);
+        background-size: contain;
+        height: calc(3vw + 3rem);
+        width: 100%;
+        position: absolute;
+        top: calc(-3vw);
     }
 
 
 
 #section-3 {
     background-color: var(--section-3-bg);
-    background-image: url(../assets/svg/ol-logga-bg-pattern.svg);
-    background-size: 100vh;
 }
+    #aboutme-headline {
+        top: 0;
+        margin: 3rem 0 1rem 0;
+    }
     #section-3-content {
         display: flex;
         gap: 100px;

@@ -68,8 +68,8 @@ export default function mobileMovement(parentEl, targetEl, transformsToKeep, opa
                     break;
             }
             
-            let dynamicDegreesY = Math.round(updown / -2);
-            let dynamicDegreesX = Math.round(sideToSide * 1);
+            let dynamicDegreesY = Math.round(updown / -4);
+            let dynamicDegreesX = Math.round(sideToSide / 4);
 
             targetEl.style.transform = `
             rotateX(${dynamicDegreesY}deg)
