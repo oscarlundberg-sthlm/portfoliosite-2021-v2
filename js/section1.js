@@ -27,8 +27,8 @@ const section1Splash = document.getElementById('section-1-splash');
 section1Splash.insertAdjacentHTML('afterbegin', svgGuyOnPhone);
 const insertedGuyOnPhone = section1Splash.getElementsByTagName('svg')[0];
 const guyOnPhoneWidthRatio = 0.579947345375073;
-insertedGuyOnPhone.setAttribute('height', section1.clientHeight + 'px')
-insertedGuyOnPhone.setAttribute('width', section1.clientHeight * guyOnPhoneWidthRatio + 'px')
+insertedGuyOnPhone.setAttribute('height', section1.clientHeight + 'px');
+insertedGuyOnPhone.setAttribute('width', parseInt(section1.clientHeight * guyOnPhoneWidthRatio) + 'px');
 insertedGuyOnPhone.setAttribute('id', 'guy-using-phone');
 
 
@@ -36,18 +36,18 @@ insertedGuyOnPhone.setAttribute('id', 'guy-using-phone');
 const enjoyInternetTextCompWidth = parseInt(getComputedStyle(enjoyInternetText).width);
 
 if (enjoyInternetTextCompWidth / document.body.clientWidth > 0.6) {
-    enjoyInternetText.style.width = '50vw';
-    section1Splash.style.perspective = '400px';
+    enjoyInternetText.style.width = '80vw';
+    section1Splash.style.perspective = '500px';
 }
 const enjoyInternetTextBehindCompWidth = parseInt(getComputedStyle(enjoyInternetTextBehind).width);
 
 if (enjoyInternetTextBehindCompWidth / document.body.clientWidth > 0.6) {
-    enjoyInternetTextBehind.style.width = '70vw';
+    enjoyInternetTextBehind.style.width = '80vw';
 }
 
-const guyOnPhone = document.getElementById('guy-using-phone');
-const guyOnPhoneCompWidth = parseInt(getComputedStyle(guyOnPhone).width);
+// const guyOnPhone = document.getElementById('guy-using-phone');
+// const guyOnPhoneCompWidth = parseInt(getComputedStyle(guyOnPhone).width);
 
-if (guyOnPhoneCompWidth / document.body.clientWidth > 0.95) {
-    guyOnPhone.style.width = '65vw';
-}
+// if (guyOnPhoneCompWidth / document.body.clientWidth > 0.95) {
+//     guyOnPhone.style.width = '65vw';
+// }

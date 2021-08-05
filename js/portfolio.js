@@ -6,7 +6,10 @@ let dvdBox = document.querySelectorAll('.img-dvd-box');
 let dvdSideColor = 'hsl(0, 0%, 80%)';
 let dvdBottomColor = 'hsl(0, 0%, 30%)';
 
+
 dvdBox.forEach(v => {
+    v.classList.add('dvd-transition');
+
     let dvdLeft, dvdRight, dvdBottom;
     dvdLeft = document.createElement('div');
     dvdRight = document.createElement('div');
@@ -64,6 +67,16 @@ const transformBoxSides = (boxSideList) => {
 transformBoxSides(dvdLeft);
 transformBoxSides(dvdRight);
 transformBoxSides(dvdBottom);
+
+window.addEventListener('resize', () => {
+    dvdBox.forEach(v => v.classList.remove('dvd-transition'));
+
+    transformBoxSides(dvdLeft);
+    transformBoxSides(dvdRight);
+    transformBoxSides(dvdBottom);
+
+    dvdBox.forEach(v => v.classList.add('dvd-transition'));
+})
 // end of dvd
 
 

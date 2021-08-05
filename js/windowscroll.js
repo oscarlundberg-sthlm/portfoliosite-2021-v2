@@ -25,7 +25,7 @@ const portfolioAutoAni = (element) => {
 
 window.addEventListener('scroll', () => {
     if (window.scrollY) {
-        topColor(document.elementFromPoint(1,1));
+        topColor(document.elementFromPoint(1,(window.innerHeight * 0.1)));
         if (pfOrientation === 'portrait') {
             portfolioAutoAni(document.elementFromPoint(halfWindowX, halfWindowY).parentNode);
         }
