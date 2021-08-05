@@ -134,7 +134,7 @@ section {
 }
     #portfolio-slider {
         background-image: linear-gradient(to bottom, var(--section-2-bg), var(--section-2-bg)), url(../assets/raster/pf-slider-bg-2.png);
-        background-size: 100% 42.5vh, 100% 20vh; /* calc(58vh + 32px) */
+        background-size: 100% 43.5vh, 100% 20vh; /* calc(58vh + 32px) */
         background-repeat: no-repeat, no-repeat;
         background-position: left top, left 42.5vh;
         background-color: #eeeeee;
