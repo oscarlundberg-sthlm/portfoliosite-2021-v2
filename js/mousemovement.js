@@ -1,4 +1,4 @@
-export default function mouseMovement(parentEl, targetEl, degrees, transformsToKeep, opacityWhileMoving) {
+export default function mouseMovement(parentEl, targetEl, degrees, transformsToKeep, opacityWhileMoving, center) {
     const mouseMove = (e) => {
         let xCenter = e.clientX - (parentEl.clientWidth / 2);
         let yCenter = e.clientY - (parentEl.clientHeight / 2);
@@ -10,6 +10,13 @@ export default function mouseMovement(parentEl, targetEl, degrees, transformsToK
     
         dynamicDegreesX = Math.round(dynamicDegreesX);
         dynamicDegreesY = Math.round(-1 * dynamicDegreesY);
+
+        if (center === true) {
+            targetEl.style.top = '50%';
+            targetEl.style.left = '50%';
+            targetEl.style.right = 'initial';
+            targetEl.style.bottom = 'initial';
+        }
     
         targetEl.style.transform = `
             rotateX(${dynamicDegreesY}deg)

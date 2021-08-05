@@ -1,4 +1,4 @@
-export default function mobileMovement(parentEl, targetEl, transformsToKeep, opacityWhileMoving) {
+export default function mobileMovement(parentEl, targetEl, transformsToKeep, opacityWhileMoving, center) {
     let sideToSide = 0, updown = 0;
     let tareYAxis = null;
     let tareXAxis = null;
@@ -70,6 +70,13 @@ export default function mobileMovement(parentEl, targetEl, transformsToKeep, opa
             
             let dynamicDegreesY = Math.round(updown / -4);
             let dynamicDegreesX = Math.round(sideToSide / 4);
+
+            if (center === true) {
+                targetEl.style.top = '50%';
+                targetEl.style.left = '50%';
+                targetEl.style.right = 'initial';
+                targetEl.style.bottom = 'initial';
+            }
 
             targetEl.style.transform = `
             rotateX(${dynamicDegreesY}deg)
