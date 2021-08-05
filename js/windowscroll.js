@@ -15,12 +15,10 @@ const topColor = (element) => {
 
 const portfolioAutoAni = (element) => {
     if (lastElement && lastElement != element) {
-        lastElement.classList.remove('portfolio-img-active');
-        lastElement.previousElementSibling.classList.remove('portfolio-img-shadow-active');
+        lastElement.classList.remove('dvd-box-active');
     }
-    if (element.classList.contains('portfolio-img')) {
-        element.classList.add('portfolio-img-active');
-        element.previousElementSibling.classList.add('portfolio-img-shadow-active');
+    if (element.classList.contains('img-dvd-box')) {
+        element.classList.add('dvd-box-active');
         lastElement = element;
     }
 }
@@ -29,7 +27,7 @@ window.addEventListener('scroll', () => {
     if (window.scrollY) {
         topColor(document.elementFromPoint(1,1));
         if (pfOrientation === 'portrait') {
-            portfolioAutoAni(document.elementFromPoint(halfWindowX, halfWindowY));
+            portfolioAutoAni(document.elementFromPoint(halfWindowX, halfWindowY).parentNode);
         }
     }
 });

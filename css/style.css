@@ -131,82 +131,71 @@ section {
 
 #section-2 {
     background-color: var(--section-2-bg);
-    perspective: 400px;
-    perspective-origin: 50% 40%;
 }
     #portfolio-slider {
-        background-image: url(../assets/raster/pf-slider-bg-2.png);
-        background-size: 100% calc(58vh + 32px);
-        background-repeat: no-repeat;
+        background-image: linear-gradient(to bottom, var(--section-2-bg), var(--section-2-bg)), url(../assets/raster/pf-slider-bg-2.png);
+        background-size: 100% 42.5vh, 100% 20vh; /* calc(58vh + 32px) */
+        background-repeat: no-repeat, no-repeat;
+        background-position: left top, left 42.5vh;
         background-color: #eeeeee;
         position: relative;
         margin-top: 1rem;
         display: flex;
-        gap: 70px;
         padding: 16px 16px 0px 16px;
         overflow-x: scroll;
-        perspective: 400px;
-        perspective-origin: 50% 40%;
+        perspective: 1400px;
+        perspective-origin: 50% 60%;
     }
-    @supports not (gap) {
-        #portfolio-slider {
-            gap: 0;
-        }
-        .portfolio-img-container {
-            margin-right: 70px; /* for safari */
-        }
+    .portfolio-entity {
+        margin-right: 70px; /* safari bad gap support */
     }
-        .portfolio-img-container {
+    .portfolio-img-container {
+            --img-height: 58vh;
+            --img-border: 5px;
+            --double-border: calc(var(--img-border) * 2);
+            --dvd-height: calc(var(--img-height) + var(--double-border));
+            --dvd-depth: calc(var(--img-height) * 0.05);
+            --half-depth: calc(var(--dvd-depth) / 2);
             position: relative;
-            height: 58vh;
+            height: var(--img-height);
             transform-origin: bottom;
         }
-        .portfolio-img {
+        .img-dvd-box {
+            height: inherit;
+            transform-origin: center bottom calc(-1 * var(--dvd-depth));
+            transform-style: preserve-3d;
+            transform: rotateX(20deg) translateZ(calc(-1 * var(--half-depth)));
+            transition: .2s ease-in-out;
+        }
+        .dvd-box-active {
             position: relative;
             z-index: 1;
-            height: inherit;
-            width: auto;
-            border: 1px solid;
-            border-top-color: whitesmoke;
-            border-left-color: rgb(150, 150, 150);
-            border-right-color: rgb(150, 150, 150);
-            border-bottom-color: rgb(97, 100, 128);
-            transform: rotate3d(1, 0, 0, 7deg);
-            transform-origin: inherit;
-            transition: .2s ease-in-out;
-        }
-        .portfolio-img-active {
-            position: relative;
-            z-index: 2;
-            transform: rotate3d(0, 0, 0, 7deg) translateY(-2%) translateZ(6px);
+            transform: rotateX(0deg) translateZ(calc(-1 * var(--half-depth)));
             cursor: pointer;
         }
-        .portfolio-img-shadow {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 0;
-            background-color: rgba(2, 2, 2, 0.5);
-            transform: rotate3d(1, 0, 0, 90deg) translateZ(-3px);
-            transform-origin: inherit;
-            transition: .2s ease-in-out;
-        }
-        .portfolio-img-shadow-active {
-            background-color: rgba(2, 2, 2, 0.4);
-            transform: rotate3d(1, 0, 0, 90deg) translateY(5px) translateZ(-3px);
-            -webkit-filter: blur(5px);
-                    filter: blur(5px);
-        }
+            .portfolio-img {
+                position: relative;
+                height: inherit;
+                width: auto;
+                border: var(--img-border) solid whitesmoke;
+                transform: translateZ(var(--half-depth));
+            }
+            .dvdLeft, .dvdRight, .dvdBottom {
+                position: absolute;
+            }
+            .dvdLeft, .dvdRight {
+                height: var(--dvd-height);
+                width: var(--dvd-depth);
+            }
+            .dvdBottom {
+                height: var(--dvd-depth);
+            }
         .portfolio-side-filler {
             height: 58vh;
             min-width: 1vw;
         }
-        @supports not (gap) {
-            .portfolio-side-filler:first-of-type {
-                min-width: 70px; /* for safari */
-            }
+        .portfolio-side-filler:first-of-type {
+            min-width: 70px; /* safari bad gap support */
         }
         .portfolio-more-info {
             position: relative;
