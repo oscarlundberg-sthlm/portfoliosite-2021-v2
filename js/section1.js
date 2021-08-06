@@ -63,7 +63,6 @@ if (window.innerWidth / window.innerHeight < 1) {
     guyOnPhoneWidth = parseInt(guyOnPhoneHeight * guyOnPhoneWidthRatio);
     guyOnPhone.setAttribute('height', guyOnPhoneHeight + 'px');
     guyOnPhone.setAttribute('width', guyOnPhoneWidth + 'px');
-    console.log(guyOnPhoneHeight, guyOnPhoneWidth);
     guyOnPhone.style.top = 0;
     guyOnPhone.style.left = 0 + '%';
     // guyOnPhone.style.left = -1 * (guyOnPhoneWidth - window.innerWidth) + 'px';
