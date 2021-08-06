@@ -1,70 +1,60 @@
-import mobileMovement from './mobilemovement.js';
-import mouseMovement from './mousemovement.js';
 import {svgGuyOnPhone} from './svgguyonphone.js';
 
+const wWidth = window.innerWidth;
+const wHeight = window.innerHeight;
 const section1 = document.getElementById('section-1');
-const enjoyInternetText = document.querySelector('#enjoy-internet');
-
-let degrees = 15;
-let transformsToKeepMouseMove = 'translate(-50%, -50%) translateZ(200px)';
-let transformsToKeepMobile = 'translate(-50%, 0%) translateZ(200px)';
-let opacityWhileMoving = null;
-
-mobileMovement(section1, enjoyInternetText, transformsToKeepMobile, null, true);
-mouseMovement(section1, enjoyInternetText, degrees, transformsToKeepMouseMove, null, true);
-
-const enjoyInternetTextBehind = document.querySelector('#enjoy-internet-behind');
-transformsToKeepMouseMove = 'translate(-50%, -50%) translateZ(-200px)';
-transformsToKeepMobile = 'translate(-50%, -50%) translateZ(-200px)';
-opacityWhileMoving = 1;
-
-mobileMovement(section1, enjoyInternetTextBehind, transformsToKeepMobile, opacityWhileMoving);
-mouseMovement(section1, enjoyInternetTextBehind, degrees, transformsToKeepMouseMove, opacityWhileMoving);
+const section1BottomFade = document.getElementById('section-1-bottom-fade');
 
 
 // insert svg guy on phone
-const section1Splash = document.getElementById('section-1-splash');
-section1Splash.insertAdjacentHTML('afterbegin', svgGuyOnPhone);
-const insertedGuyOnPhone = section1Splash.getElementsByTagName('svg')[0];
-const guyOnPhoneWidthRatio = 0.579947345375073;
-let guyOnPhoneHeight = 1000;
-let guyOnPhoneWidth = parseInt(guyOnPhoneHeight * guyOnPhoneWidthRatio);
-insertedGuyOnPhone.setAttribute('height', guyOnPhoneHeight + 'px');
-insertedGuyOnPhone.setAttribute('width', guyOnPhoneWidth + 'px');
+section1.insertAdjacentHTML('afterbegin', svgGuyOnPhone);
+const insertedGuyOnPhone = section1.getElementsByTagName('svg')[0];
 insertedGuyOnPhone.setAttribute('id', 'guy-using-phone');
 
 
-// responsiveness
-const enjoyInternetTextCompWidth = parseInt(getComputedStyle(enjoyInternetText).width);
 
-if (enjoyInternetTextCompWidth / document.body.clientWidth > 0.6) {
-    enjoyInternetText.style.width = '80vw';
-    section1.style.perspective = '500px';
+const getHeightFromWidth = (width) => {
+    const ratio = 0.579947345375073;
+    let height = parseInt(width / ratio);
+    return height;
 }
-const enjoyInternetTextBehindCompWidth = parseInt(getComputedStyle(enjoyInternetTextBehind).width);
 
-if (enjoyInternetTextBehindCompWidth / document.body.clientWidth > 0.6) {
-    enjoyInternetTextBehind.style.width = '80vw';
-}
+
 
 const guyOnPhone = document.getElementById('guy-using-phone');
+let guyOnPhoneWidth;
 
-if (window.innerWidth / window.innerHeight < 1) {
-    guyOnPhoneHeight = Math.floor(window.innerHeight * 1.2);
-    guyOnPhoneWidth = parseInt(guyOnPhoneHeight * guyOnPhoneWidthRatio);
-    guyOnPhone.setAttribute('height', guyOnPhoneHeight + 'px');
+const section1H1 = document.getElementById('section-1-h1');
+
+//landscape
+if (wWidth / wHeight > 1) {
+    guyOnPhoneWidth = parseInt(wWidth * 0.6944444444);
+
     guyOnPhone.setAttribute('width', guyOnPhoneWidth + 'px');
-    guyOnPhone.style.top = 0;
-    guyOnPhone.style.left = 0;
-    guyOnPhone.style.left = -1 * (guyOnPhoneWidth - window.innerWidth) + 'px';
-    guyOnPhone.style.transform = 'translate(0, 0)';
-} else {
-    guyOnPhoneHeight = Math.floor(window.innerHeight * 1.2);
-    guyOnPhoneWidth = parseInt(guyOnPhoneHeight * guyOnPhoneWidthRatio);
-    guyOnPhone.setAttribute('height', guyOnPhoneHeight + 'px');
+    guyOnPhone.setAttribute('height', getHeightFromWidth(guyOnPhoneWidth) + 'px');
+
+    guyOnPhone.style.top = -1 * (0.13 * getHeightFromWidth(guyOnPhoneWidth)) + 'px';
+    guyOnPhone.style.left = 0.084 * guyOnPhoneWidth;
+
+    section1H1.style.fontSize = '42px';
+    section1H1.style.left = '50vw';
+    section1H1.style.top = '42vh';
+
+    let extraHeight = wWidth * 0.2;
+    section1.style.height = wHeight + extraHeight + 'px';
+    section1BottomFade.style.height = extraHeight + 'px';
+}
+
+//portrait
+if (wWidth / wHeight <= 1) {
+    guyOnPhoneWidth = parseInt(wWidth * 1.05333);
+
     guyOnPhone.setAttribute('width', guyOnPhoneWidth + 'px');
-    guyOnPhone.style.top = 0;
-    guyOnPhone.style.left = 0 + '%';
-    // guyOnPhone.style.left = -1 * (guyOnPhoneWidth - window.innerWidth) + 'px';
-    guyOnPhone.style.transform = 'translate(-4%, -5%)';
+    guyOnPhone.setAttribute('height', getHeightFromWidth(guyOnPhoneWidth) + 'px');
+
+    guyOnPhone.style.left = -1 * (0.1 * guyOnPhoneWidth) + 'px';
+
+    section1H1.style.fontSize = '22px';
+    section1H1.style.left = '52.2%';
+    section1H1.style.top = '32.2%';
 }
