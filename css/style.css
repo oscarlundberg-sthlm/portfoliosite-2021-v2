@@ -8,7 +8,7 @@
     --section-4-bg: #04623A;
 }
 body {
-    background-color: var(--section-1-bg);
+    background-color: var(--section-2-bg);
     margin: 0;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -256,7 +256,8 @@ section {
 #section-4 {
     background-color: var(--section-4-bg);
     background-image: url(../assets/raster/duva-exp-3-bg.webp), linear-gradient(180deg, var(--section-4-bg) 0%, #04261B 100%);
-    background-size: 250px;
+    background-repeat: repeat, no-repeat;
+    background-size: 250px, 100%;
     background-attachment: fixed;
     position: relative;
     z-index: 1;
@@ -330,7 +331,7 @@ section {
 
 @media only screen and (max-width: 1439px) {
     #section-4 {
-        background-size: 20vw;
+        background-size: 20vw, 100%;
     }
 }
 @media only screen and (max-width: 1250px) {
