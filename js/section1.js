@@ -3,12 +3,13 @@ import {svgGuyOnPhone} from './svgguyonphone.js';
 const wWidth = window.innerWidth;
 const wHeight = window.innerHeight;
 const section1 = document.getElementById('section-1');
+const guyOnPhoneContainer = document.getElementById('guy-on-phone-container');
 const section1BottomFade = document.getElementById('section-1-bottom-fade');
 
 
 // insert svg guy on phone
-section1.insertAdjacentHTML('afterbegin', svgGuyOnPhone);
-const insertedGuyOnPhone = section1.getElementsByTagName('svg')[0];
+guyOnPhoneContainer.insertAdjacentHTML('afterbegin', svgGuyOnPhone);
+const insertedGuyOnPhone = guyOnPhoneContainer.getElementsByTagName('svg')[0];
 insertedGuyOnPhone.setAttribute('id', 'guy-using-phone');
 
 
@@ -58,3 +59,8 @@ if (wWidth / wHeight <= 1) {
     section1H1.style.left = '52.2%';
     section1H1.style.top = '32.2%';
 }
+
+guyOnPhoneContainer.style.opacity = 1;
+guyOnPhoneContainer.style.filter = 'brightness(1)';
+section1H1.style.opacity = 1;
+section1H1.style.filter = 'brightness(1)';
