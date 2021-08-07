@@ -1,7 +1,7 @@
 import {svgGuyOnPhone} from './svgguyonphone.js';
 
-const wWidth = window.innerWidth;
-const wHeight = window.innerHeight;
+const wWidth = document.documentElement.clientWidth; //window.innerWidth
+const wHeight = document.documentElement.clientHeight; //window.innerHeight
 const section1 = document.getElementById('section-1');
 const guyOnPhoneContainer = document.getElementById('guy-on-phone-container');
 const section1BottomFade = document.getElementById('section-1-bottom-fade');
