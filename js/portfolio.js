@@ -1,5 +1,4 @@
 const images = document.querySelectorAll('.portfolio-img');
-const shadows = document.querySelectorAll('.portfolio-img-shadow');
 
 // dvd
 let dvdBox = document.querySelectorAll('.img-dvd-box');
@@ -34,8 +33,11 @@ const transformBoxSides = (boxSideList) => {
     boxSideList.forEach(v => {
         let style = getComputedStyle(v);
         let parentStyle = getComputedStyle(v.parentNode);
-        let imgTotalWidth = v.parentNode.lastElementChild.offsetWidth;
-        let imgTotalHeight = v.parentNode.lastElementChild.offsetHeight;
+        let imgTotalWidth, imgTotalHeight;
+
+        imgTotalWidth = v.parentNode.lastElementChild.lastElementChild.offsetWidth;
+        imgTotalHeight = v.parentNode.lastElementChild.lastElementChild.offsetHeight;
+
         let move, height, width;
 
         switch (boxSideList) {
@@ -95,7 +97,7 @@ const pfScrollEffect = () => {
         let lastElement = '';
         document.getElementById('portfolio-slider').addEventListener('scroll', (e) => {
             if (e.target.scrollLeft) {
-                let element = document.elementFromPoint((window.innerWidth / 2), (window.innerHeight / 2)).parentNode;
+                let element = document.elementFromPoint((window.innerWidth / 2), (window.innerHeight / 2)).parentNode.parentNode;
                 if (element.classList.contains('img-dvd-box')) {
                     if (lastElement && lastElement != element) {
                         lastElement.classList.remove('dvd-box-active');
@@ -114,7 +116,7 @@ const imgsNoLink = document.querySelectorAll('.portfolio-img-no-link');
 
 imgsNoLink.forEach(v => v.addEventListener('click', (e) => {
     const el = e.target;
-    const dvdBox = el.parentNode;
+    const dvdBox = el.parentNode.parentNode;
     const boundingBox = el.getBoundingClientRect();
     const imgAlt = el.alt;
     const imgSrc = el.currentSrc;

@@ -27,7 +27,7 @@ window.addEventListener('scroll', () => {
     if (window.scrollY) {
         topColor(document.elementFromPoint(1,1));
         if (pfOrientation === 'portrait') {
-            portfolioAutoAni(document.elementFromPoint(halfWindowX, halfWindowY).parentNode);
+            portfolioAutoAni(document.elementFromPoint(halfWindowX, halfWindowY).parentNode.parentNode);
         }
     }
 });

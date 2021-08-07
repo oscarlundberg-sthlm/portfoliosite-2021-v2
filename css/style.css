@@ -122,7 +122,7 @@ section {
             transform-origin: bottom;
         }
         .img-dvd-box {
-            height: inherit;
+            height: var(--img-height);
             transform-origin: center bottom calc(-1 * var(--dvd-depth));
             transform-style: preserve-3d;
             transform: rotateX(20deg) translateZ(calc(-1 * var(--half-depth)));
@@ -138,7 +138,7 @@ section {
         }
             .portfolio-img {
                 position: relative;
-                height: inherit;
+                height: var(--img-height);
                 width: auto;
                 border: var(--img-border) solid whitesmoke;
                 transform: translateZ(var(--half-depth));
@@ -255,7 +255,7 @@ section {
 
 #section-4 {
     background-color: var(--section-4-bg);
-    background-image: url(../assets/raster/duva-exp-3-bg.webp), linear-gradient(180deg, var(--section-4-bg) 0%, #04261B 100%);
+    background-image: url(../assets/raster/duva-exp-3-bg.png), linear-gradient(180deg, var(--section-4-bg) 0%, #04261B 100%);
     background-repeat: repeat, no-repeat;
     background-size: 250px, 100%;
     background-attachment: fixed;
