@@ -1,3 +1,7 @@
+//Not imported anywhere right now. 
+//Used to be included as <script src> at bottom of index.html
+//BUG - shows landscapePopup on windows computers
+
 const landscapePopup = document.createElement('div');
 landscapePopup.id = 'landscape-popup';
 landscapePopup.style.position = 'fixed';
