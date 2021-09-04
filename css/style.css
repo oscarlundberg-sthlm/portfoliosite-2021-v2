@@ -335,7 +335,14 @@ section {
                 transform: rotate(-20deg);
                 opacity: .2;
             }
-
+footer {
+    text-align: center;
+    color: #838383;
+    padding: 1.5rem;
+}
+footer p {
+    margin: 0;
+}
 
 
 @media only screen and (max-width: 1439px) {
